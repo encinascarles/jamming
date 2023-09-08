@@ -17,6 +17,10 @@ function App() {
       </header>
       <main>
         <SearchBar />
+        <div class="TrackSection">
+          <SearchResults />
+          <Playlist />
+        </div>
       </main>
       <footer>
         <h3>©Carles Encinas    2023</h3>

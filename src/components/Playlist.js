@@ -4,6 +4,7 @@ import './Playlist.css';
 function Playlist (){
     return (
         <div class="playlist">
+            <h1>Playlist</h1>
         </div>
     );
 }
