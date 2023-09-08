@@ -12,12 +12,20 @@ import Spotify from '../Spotify';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
+  const [playlistTracks, setplaylistTracks] = useState([]);
   useEffect(() => {
     Spotify.getAccessToken();
   }, []);
 
   function handleSearch (search){
     Spotify.search(search).then((results) => setSearchResults(results));
+  }
+
+  function addTrack(track) {
+    if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
+      return;
+    }
+    setplaylistTracks([...playlistTracks, track]);
   }
 
   return (
@@ -28,8 +36,8 @@ function App() {
       <main>
         <SearchBar onSearch={handleSearch}/>
         <div class="TrackSection">
-          <SearchResults searchResults={searchResults}/>
-          <Playlist />
+          <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <Playlist playlistTracks={playlistTracks} />
         </div>
       </main>
       <footer>

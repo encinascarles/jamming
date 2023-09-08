@@ -2,14 +2,16 @@ import React, { useState, useCallback } from 'react';
 import './Tracklist.css';
 import Track from './Track';
 
-function Tracklist (searchResults){
+function Tracklist (props){
     return (
         <div class="Tracklist">
-            {searchResults.tracks.map((track) => {
+            {props.tracks.map((track) => {
                 return (
                     <Track
                         track={track}
                         key={track.id}
+                        onAdd={props.onAdd}
+                        sign={props.sign}
                     />
                 );
             })}
