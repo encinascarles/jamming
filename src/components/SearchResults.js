@@ -1,14 +1,19 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './SearchResults.css';
+import Tracklist from './Tracklist';
 
-function SearchResults (){
+function SearchResults (props){
+    console.log(props.searchResults);
     return (
         <div class="SearchResults">
             <div class="Title">
                 <h1>Results</h1>
-            </div>
+            </div>    
+            <Tracklist tracks={props.searchResults}/>   
         </div>
     );
 }
+
+
 
 export default SearchResults;
