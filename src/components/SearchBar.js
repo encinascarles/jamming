@@ -1,15 +1,25 @@
 import React, { useState, useCallback } from 'react';
 import './SearchBar.css';
+import Spotify from '../Spotify';
 
-function SearchBar (){
-    return (
-        <div class="search-bar">
-            <form>
-              <input placeholder="Enter A Song, Album, or Artist" />
-              <button class="search-button">SEARCH</button>
-            </form>
-        </div>
-    );
+function SearchBar (props){
+  const [searchValue, setSearchValue] = useState('');
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.onSearch(searchValue);
+    setSearchValue("");
+  }
+  function handleChange(e) {
+    setSearchValue(e.target.value);
+  }
+  return (
+      <div class="search-bar">
+          <form onSubmit={handleSubmit}>
+            <input value={searchValue} onChange={handleChange} placeholder="Enter A Song, Album, or Artist" />
+            <button class="search-button" type="submit">SEARCH</button>
+          </form>
+      </div>
+  );
 }
 
 export default SearchBar;
