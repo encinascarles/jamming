@@ -1,4 +1,4 @@
-const clientId = '62dad61bfc1d403badaa3a9624757a20'; // Insert client ID here.
+const clientId = '7c8e1e9d759c4e67898184f170984f0c'; // Insert client ID here.
 const redirectUri = 'https://jamming-atoynwh5c-encinascarles.vercel.app/'; // Have to add this to your accepted Spotify redirect URIs on the Spotify API.
 let accessToken;
 
