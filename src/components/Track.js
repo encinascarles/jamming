@@ -6,7 +6,7 @@ function Track (props){
         props.onAdd(props.track);
     }
     function handleRemove(e) {
-        props.onAdd(props.track);
+        props.onRemove(props.track);
     }
     return (
         <div class="Track">

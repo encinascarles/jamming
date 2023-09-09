@@ -11,6 +11,7 @@ function Tracklist (props){
                         track={track}
                         key={track.id}
                         onAdd={props.onAdd}
+                        onRemove={props.onRemove}
                         sign={props.sign}
                     />
                 );
