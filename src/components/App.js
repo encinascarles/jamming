@@ -38,6 +38,14 @@ function App() {
     
   }
 
+  function savePlaylist(playlistName) {
+    const trackURIs = playlistTracks.map((track) => track.uri);
+    Spotify.savePlaylist(playlistName, trackURIs).then(() => {
+      setplaylistTracks([]);
+    });
+    console.log("grravat");
+  }
+
   return (
     <div class="body">
       <header>
@@ -47,7 +55,7 @@ function App() {
         <SearchBar onSearch={handleSearch}/>
         <div class="TrackSection">
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
-          <Playlist playlistTracks={playlistTracks} onRemove={deleteTrack}/>
+          <Playlist playlistTracks={playlistTracks} onRemove={deleteTrack} onSave={savePlaylist}/>
         </div>
       </main>
       <footer>
